@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
+from . import engine
 from .challenges import REGISTRY
 from .models import Match
 
@@ -48,7 +49,36 @@ def match_page(request, match_id):
         raise Http404
     if match.status == Match.Status.WAITING:
         return redirect("room_wait", match_id=match.id)
-    return render(request, "game/match.html", {"match": match})
+    if match.status == Match.Status.FINISHED:
+        return redirect("match_result", match_id=match.id)
+    return render(request, "game/match.html", {"match": match, "world_svg": _world_svg()})
+
+
+@login_required
+def match_result(request, match_id):
+    match = get_object_or_404(Match.objects.select_related("host", "guest", "winner"), pk=match_id)
+    if not match.has_player(request.user):
+        raise Http404
+    if match.status != Match.Status.FINISHED:
+        return redirect("match", match_id=match.id)
+    s = engine.scores(match)
+    me, opponent = (match.host, match.guest) if match.host_id == request.user.pk else (match.guest, match.host)
+    if match.winner_id is None:
+        outcome = "draw"
+    else:
+        outcome = "win" if match.winner_id == request.user.pk else "loss"
+    return render(
+        request,
+        "game/result.html",
+        {
+            "match": match,
+            "me": me,
+            "opponent": opponent,
+            "me_score": s[me.pk]["score"],
+            "opponent_score": s[opponent.pk]["score"],
+            "outcome": outcome,
+        },
+    )
 
 
 @lru_cache(maxsize=1)

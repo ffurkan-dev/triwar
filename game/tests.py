@@ -14,6 +14,8 @@ def make_user(name):
 
 
 class ApiTestCase(TestCase):
+    fixtures = ["countries"]
+
     def setUp(self):
         self.deniz = make_user("deniz")
         self.kaan = make_user("kaan")
@@ -181,6 +183,6 @@ class PageTests(ApiTestCase):
         match = self.create_room(self.deniz)
         self.as_user(self.kaan)
         self.post_json(reverse("api_room_join", args=[match.id]))
-        self.assertContains(self.client.get(reverse("match", args=[match.id])), "deniz")
+        self.assertContains(self.client.get(reverse("match", args=[match.id])), 'id="options"')
         self.as_user(self.ece)
         self.assertEqual(self.client.get(reverse("match", args=[match.id])).status_code, 404)

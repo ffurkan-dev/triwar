@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Sonuç · Triwar{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="card auth-card result-card">
+    {% if outcome == "win" %}
+      <h1 class="result-win">Kazandın! 🎉</h1>
+    {% elif outcome == "loss" %}
+      <h1 class="result-loss">Kaybettin</h1>
+    {% else %}
+      <h1>Berabere</h1>
+    {% endif %}
+    <p class="result-score">
+      <span>{{ me.username }}</span>
+      <b>{{ me_score }} — {{ opponent_score }}</b>
+      <span>{{ opponent.username }}</span>
+    </p>
+    <div class="room-badges">
+      <span class="badge badge-primary">{{ match.challenge_label }}</span>
+      <span class="badge {% if match.time_limit == 20 %}badge-accent{% else %}badge-cyan{% endif %}">{{ match.time_limit }} sn</span>
+    </div>
+    <a class="btn btn-block" href="{% url 'lobby' %}">Lobiye dön</a>
+  </div>
+</div>
+{% endblock %}

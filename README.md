@@ -24,6 +24,8 @@ DATABASE_URL= python manage.py test
 
 `DATABASE_URL=` boş verilir ki testler Supabase yerine yerel SQLite'ta çalışsın.
 
+Geliştirme için `ROUNDS_PER_MATCH=3` ortam değişkeniyle maç turu sayısı kısaltılabilir (varsayılan 10).
+
 ## Harita verisi
 
 `static/maps/world.svg` ve `game/fixtures/countries.json` Natural Earth 110m verisinden üretilir (repoda hazır gelir). Yeniden üretmek için:

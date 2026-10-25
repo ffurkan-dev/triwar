@@ -1,4 +1,5 @@
 import json
+from datetime import timedelta
 from functools import wraps
 
 from django.db import IntegrityError, transaction
@@ -8,6 +9,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_http_methods
 
+from . import engine
 from .challenges import REGISTRY
 from .models import Match
 
@@ -94,12 +96,14 @@ def room_join(request, match_id):
             return error("Zaten açık bir odan veya maçın var.", 409)
         match.guest = request.user
         match.status = Match.Status.ACTIVE
-        match.started_at = timezone.now()
+        now = timezone.now()
+        match.started_at = now
         try:
             with transaction.atomic():
                 match.save(update_fields=["guest", "status", "started_at"])
         except IntegrityError:
             return error("Zaten açık bir odan veya maçın var.", 409)
+        engine.start_match(match, now)
     return JsonResponse({"url": reverse("match", args=[match.id])})
 
 
@@ -139,3 +143,91 @@ def practice_answer(request):
         return error("Geçersiz istek.", 400)
     correct = REGISTRY["country_map"].check_answer(answer_key, value)
     return JsonResponse({"correct": correct, "answer": answer_key["answer"]})
+
+
+def _answer_json(answer):
+    return None if answer is None else {"value": answer.value, "correct": answer.is_correct}
+
+
+def match_state(match, user, now):
+    """Client view of a match. The correct answer appears only once the round is closed."""
+    me_id = user.pk
+    opponent = match.guest if match.host_id == me_id else match.host
+    s = engine.scores(match) if match.guest_id else {}
+    data = {
+        "status": match.status,
+        "server_now": now.isoformat(),
+        "challenge_type": match.challenge_type,
+        "time_limit": match.time_limit,
+        "round": None,
+        "reveal": None,
+        "players": {
+            "me": {"username": user.username, "score": s.get(me_id, {}).get("score", 0)},
+            "opponent": {"username": opponent.username if opponent else None, "score": s.get(opponent.pk, {}).get("score", 0) if opponent else 0},
+        },
+    }
+    if match.status == Match.Status.FINISHED:
+        data["result_url"] = reverse("match_result", args=[match.id])
+    if match.status != Match.Status.ACTIVE:
+        return data
+
+    rnd = engine.current_round(match)
+    answers = {a.user_id: a for a in rnd.answers.all()}
+    closed = rnd.closed_at is not None
+    if closed:
+        phase = "reveal"
+    elif now < rnd.started_at:
+        phase = "countdown"
+    else:
+        phase = "question"
+    data["round"] = {
+        "index": rnd.index,
+        "total": match.total_rounds,
+        "phase": phase,
+        "started_at": rnd.started_at.isoformat(),
+        "deadline": rnd.deadline.isoformat(),
+        "payload": None if phase == "countdown" else rnd.payload,  # no peeking during the countdown
+        "my_answer": answers[me_id].value if me_id in answers else None,
+        "opponent_answered": opponent.pk in answers,
+    }
+    if closed:
+        data["reveal"] = {
+            "answer": rnd.answer_key["answer"],
+            "iso2": rnd.answer_key["iso2"],
+            "answers": {"me": _answer_json(answers.get(me_id)), "opponent": _answer_json(answers.get(opponent.pk))},
+            "next_at": (rnd.closed_at + timedelta(seconds=engine.REVEAL_SECONDS)).isoformat(),
+        }
+    return data
+
+
+@api_login_required
+@require_http_methods(["GET"])
+def match_state_view(request, match_id):
+    now = timezone.now()
+    with transaction.atomic():
+        match = get_object_or_404(Match.objects.select_for_update().select_related("host", "guest"), pk=match_id)
+        if not match.has_player(request.user):
+            return error("Bulunamadı.", 404)
+        engine.advance(match, now)
+        return JsonResponse(match_state(match, request.user, now))
+
+
+@api_login_required
+@require_http_methods(["POST"])
+def match_answer(request, match_id):
+    try:
+        data = json.loads(request.body or b"{}")
+        round_index = int(data["round_index"])
+        value = str(data["value"])
+    except (ValueError, KeyError, TypeError):
+        return error("Geçersiz istek.", 400)
+    now = timezone.now()
+    with transaction.atomic():
+        match = get_object_or_404(Match.objects.select_for_update(), pk=match_id)
+        if not match.has_player(request.user):
+            return error("Bulunamadı.", 404)
+        try:
+            engine.submit_answer(match, request.user, round_index, value, now)
+        except engine.EngineError as exc:
+            return error(exc.message, exc.status)
+    return JsonResponse({"ok": True})

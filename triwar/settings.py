@@ -99,4 +99,4 @@ LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "lobby"
 LOGOUT_REDIRECT_URL = "home"
 
-ROUNDS_PER_MATCH = 10
+ROUNDS_PER_MATCH = int(os.environ.get("ROUNDS_PER_MATCH", 10))

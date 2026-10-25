@@ -1,10 +1,34 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Maç · Triwar{% endblock %}
 {% block content %}
-<section class="hero">
-  <h1>Maç başladı</h1>
-  <p><strong>{{ match.host.username }}</strong> vs <strong>{{ match.guest.username }}</strong></p>
-  <span class="badge badge-primary">{{ match.challenge_label }}</span>
-  <span class="badge {% if match.time_limit == 20 %}badge-accent{% else %}badge-cyan{% endif %}">{{ match.time_limit }} sn</span>
-</section>
+<div class="match" id="match" data-id="{{ match.id }}">
+  <div class="scorebar card" aria-live="polite">
+    <span class="who" id="me-name"></span>
+    <span class="score"><b id="me-score">0</b> — <b id="opp-score">0</b></span>
+    <span class="who" id="opp-name"></span>
+  </div>
+  <div class="round-info">
+    <span id="round-label" class="badge badge-primary">Hazırlanıyor</span>
+    <span id="opp-status" class="muted"></span>
+    <div class="timer" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="64" height="64">
+        <circle class="timer-track" cx="32" cy="32" r="28"/>
+        <circle class="timer-bar" id="timer-bar" cx="32" cy="32" r="28" transform="rotate(-90 32 32)"/>
+        <text id="timer-text" x="32" y="39" text-anchor="middle"></text>
+      </svg>
+    </div>
+  </div>
+  <div class="map-card card map-stage">
+    {{ world_svg }}
+    <div id="overlay" class="overlay" aria-live="assertive"></div>
+  </div>
+  <div id="options" class="options"></div>
+  <p id="status-line" class="feedback" role="status"></p>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'js/api.js' %}"></script>
+<script src="{% static 'js/map.js' %}"></script>
+<script src="{% static 'js/match.js' %}"></script>
 {% endblock %}

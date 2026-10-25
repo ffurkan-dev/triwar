@@ -84,3 +84,32 @@ class Match(models.Model):
             .filter(models.Q(host=user) | models.Q(guest=user))
             .first()
         )
+
+
+class Round(models.Model):
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name="rounds")
+    index = models.PositiveSmallIntegerField()
+    payload = models.JSONField()  # question data sent to clients; never holds the answer
+    answer_key = models.JSONField()  # server only
+    started_at = models.DateTimeField(null=True, blank=True)
+    deadline = models.DateTimeField(null=True, blank=True)
+    closed_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["index"]
+        constraints = [models.UniqueConstraint(fields=["match", "index"], name="unique_round_index")]
+
+    def __str__(self):
+        return f"{self.match_id} #{self.index}"
+
+
+class Answer(models.Model):
+    round = models.ForeignKey(Round, on_delete=models.CASCADE, related_name="answers")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    value = models.CharField(max_length=100)
+    is_correct = models.BooleanField()
+    response_ms = models.PositiveIntegerField()
+    answered_at = models.DateTimeField()
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=["round", "user"], name="one_answer_per_round_and_user")]

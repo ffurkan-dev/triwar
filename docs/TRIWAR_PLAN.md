@@ -356,7 +356,7 @@ Motor saf fonksiyonlara ayrılmalı ve `now` parametre olarak verilebilmeli ki z
 | 1 | Kayıt / giriş / çıkış | ✅ |
 | 2 | Lobi ve odalar | ✅ |
 | 3 | Harita ve ülke verisi (tek kişilik test) | ✅ |
-| 4 | 1v1 maç akışı | ⬜ |
+| 4 | 1v1 maç akışı | ✅ |
 | 5 | Sonuç ekranı, terk/temizlik, cila | ⬜ |
 
 ---
