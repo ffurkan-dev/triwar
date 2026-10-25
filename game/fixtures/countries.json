@@ -1,0 +1,1742 @@
+[
+ {
+  "model": "game.country",
+  "pk": "AF",
+  "fields": {
+   "name_tr": "Afganistan",
+   "name_en": "Afghanistan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "AL",
+  "fields": {
+   "name_tr": "Arnavutluk",
+   "name_en": "Albania",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "DZ",
+  "fields": {
+   "name_tr": "Cezayir",
+   "name_en": "Algeria",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "AO",
+  "fields": {
+   "name_tr": "Angola",
+   "name_en": "Angola",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "AR",
+  "fields": {
+   "name_tr": "Arjantin",
+   "name_en": "Argentina",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "AM",
+  "fields": {
+   "name_tr": "Ermenistan",
+   "name_en": "Armenia",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "AU",
+  "fields": {
+   "name_tr": "Avustralya",
+   "name_en": "Australia",
+   "continent": "Oceania",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "AT",
+  "fields": {
+   "name_tr": "Avusturya",
+   "name_en": "Austria",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "AZ",
+  "fields": {
+   "name_tr": "Azerbaycan",
+   "name_en": "Azerbaijan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BD",
+  "fields": {
+   "name_tr": "Bangladeş",
+   "name_en": "Bangladesh",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BY",
+  "fields": {
+   "name_tr": "Beyaz Rusya",
+   "name_en": "Belarus",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BE",
+  "fields": {
+   "name_tr": "Belçika",
+   "name_en": "Belgium",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BZ",
+  "fields": {
+   "name_tr": "Belize",
+   "name_en": "Belize",
+   "continent": "North America",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BJ",
+  "fields": {
+   "name_tr": "Benin",
+   "name_en": "Benin",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BT",
+  "fields": {
+   "name_tr": "Bhutan",
+   "name_en": "Bhutan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BO",
+  "fields": {
+   "name_tr": "Bolivya",
+   "name_en": "Bolivia",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BA",
+  "fields": {
+   "name_tr": "Bosna-Hersek",
+   "name_en": "Bosnia and Herzegovina",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BW",
+  "fields": {
+   "name_tr": "Botsvana",
+   "name_en": "Botswana",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BR",
+  "fields": {
+   "name_tr": "Brezilya",
+   "name_en": "Brazil",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BN",
+  "fields": {
+   "name_tr": "Brunei",
+   "name_en": "Brunei",
+   "continent": "Asia",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BG",
+  "fields": {
+   "name_tr": "Bulgaristan",
+   "name_en": "Bulgaria",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BF",
+  "fields": {
+   "name_tr": "Burkina Faso",
+   "name_en": "Burkina Faso",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BI",
+  "fields": {
+   "name_tr": "Burundi",
+   "name_en": "Burundi",
+   "continent": "Africa",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "KH",
+  "fields": {
+   "name_tr": "Kamboçya",
+   "name_en": "Cambodia",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CM",
+  "fields": {
+   "name_tr": "Kamerun",
+   "name_en": "Cameroon",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CA",
+  "fields": {
+   "name_tr": "Kanada",
+   "name_en": "Canada",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CF",
+  "fields": {
+   "name_tr": "Orta Afrika Cumhuriyeti",
+   "name_en": "Central African Republic",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TD",
+  "fields": {
+   "name_tr": "Çad",
+   "name_en": "Chad",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CL",
+  "fields": {
+   "name_tr": "Şili",
+   "name_en": "Chile",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CO",
+  "fields": {
+   "name_tr": "Kolombiya",
+   "name_en": "Colombia",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CR",
+  "fields": {
+   "name_tr": "Kosta Rika",
+   "name_en": "Costa Rica",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "HR",
+  "fields": {
+   "name_tr": "Hırvatistan",
+   "name_en": "Croatia",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CU",
+  "fields": {
+   "name_tr": "Küba",
+   "name_en": "Cuba",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CY",
+  "fields": {
+   "name_tr": "Kıbrıs",
+   "name_en": "Cyprus",
+   "continent": "Asia",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CZ",
+  "fields": {
+   "name_tr": "Çekya",
+   "name_en": "Czech Republic",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CD",
+  "fields": {
+   "name_tr": "Kongo Demokratik Cumhuriyeti",
+   "name_en": "Democratic Republic of the Congo",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "DK",
+  "fields": {
+   "name_tr": "Danimarka",
+   "name_en": "Denmark",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "DJ",
+  "fields": {
+   "name_tr": "Cibuti",
+   "name_en": "Djibouti",
+   "continent": "Africa",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "DO",
+  "fields": {
+   "name_tr": "Dominik Cumhuriyeti",
+   "name_en": "Dominican Republic",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TL",
+  "fields": {
+   "name_tr": "Doğu Timor",
+   "name_en": "East Timor",
+   "continent": "Asia",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "EC",
+  "fields": {
+   "name_tr": "Ekvador",
+   "name_en": "Ecuador",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "EG",
+  "fields": {
+   "name_tr": "Mısır",
+   "name_en": "Egypt",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SV",
+  "fields": {
+   "name_tr": "El Salvador",
+   "name_en": "El Salvador",
+   "continent": "North America",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GQ",
+  "fields": {
+   "name_tr": "Ekvator Ginesi",
+   "name_en": "Equatorial Guinea",
+   "continent": "Africa",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "ER",
+  "fields": {
+   "name_tr": "Eritre",
+   "name_en": "Eritrea",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "EE",
+  "fields": {
+   "name_tr": "Estonya",
+   "name_en": "Estonia",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SZ",
+  "fields": {
+   "name_tr": "Esvatini",
+   "name_en": "Eswatini",
+   "continent": "Africa",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "ET",
+  "fields": {
+   "name_tr": "Etiyopya",
+   "name_en": "Ethiopia",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "FK",
+  "fields": {
+   "name_tr": "Falkland Adaları",
+   "name_en": "Falkland Islands",
+   "continent": "South America",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "FJ",
+  "fields": {
+   "name_tr": "Fiji",
+   "name_en": "Fiji",
+   "continent": "Oceania",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "FI",
+  "fields": {
+   "name_tr": "Finlandiya",
+   "name_en": "Finland",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "FR",
+  "fields": {
+   "name_tr": "Fransa",
+   "name_en": "France",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TF",
+  "fields": {
+   "name_tr": "Fransız Güney ve Antarktika Toprakları",
+   "name_en": "French Southern and Antarctic Lands",
+   "continent": "Seven seas (open ocean)",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GA",
+  "fields": {
+   "name_tr": "Gabon",
+   "name_en": "Gabon",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GE",
+  "fields": {
+   "name_tr": "Gürcistan",
+   "name_en": "Georgia",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "DE",
+  "fields": {
+   "name_tr": "Almanya",
+   "name_en": "Germany",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GH",
+  "fields": {
+   "name_tr": "Gana",
+   "name_en": "Ghana",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GR",
+  "fields": {
+   "name_tr": "Yunanistan",
+   "name_en": "Greece",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GL",
+  "fields": {
+   "name_tr": "Grönland",
+   "name_en": "Greenland",
+   "continent": "North America",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GT",
+  "fields": {
+   "name_tr": "Guatemala",
+   "name_en": "Guatemala",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GN",
+  "fields": {
+   "name_tr": "Gine",
+   "name_en": "Guinea",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GW",
+  "fields": {
+   "name_tr": "Gine-Bissau",
+   "name_en": "Guinea-Bissau",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GY",
+  "fields": {
+   "name_tr": "Guyana",
+   "name_en": "Guyana",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "HT",
+  "fields": {
+   "name_tr": "Haiti",
+   "name_en": "Haiti",
+   "continent": "North America",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "HN",
+  "fields": {
+   "name_tr": "Honduras",
+   "name_en": "Honduras",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "HU",
+  "fields": {
+   "name_tr": "Macaristan",
+   "name_en": "Hungary",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "IS",
+  "fields": {
+   "name_tr": "İzlanda",
+   "name_en": "Iceland",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "IN",
+  "fields": {
+   "name_tr": "Hindistan",
+   "name_en": "India",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "ID",
+  "fields": {
+   "name_tr": "Endonezya",
+   "name_en": "Indonesia",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "IR",
+  "fields": {
+   "name_tr": "İran",
+   "name_en": "Iran",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "IQ",
+  "fields": {
+   "name_tr": "Irak",
+   "name_en": "Iraq",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "IE",
+  "fields": {
+   "name_tr": "İrlanda",
+   "name_en": "Ireland",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "IL",
+  "fields": {
+   "name_tr": "İsrail",
+   "name_en": "Israel",
+   "continent": "Asia",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "IT",
+  "fields": {
+   "name_tr": "İtalya",
+   "name_en": "Italy",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CI",
+  "fields": {
+   "name_tr": "Fildişi Sahili",
+   "name_en": "Ivory Coast",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "JM",
+  "fields": {
+   "name_tr": "Jamaika",
+   "name_en": "Jamaica",
+   "continent": "North America",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "JP",
+  "fields": {
+   "name_tr": "Japonya",
+   "name_en": "Japan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "JO",
+  "fields": {
+   "name_tr": "Ürdün",
+   "name_en": "Jordan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "KZ",
+  "fields": {
+   "name_tr": "Kazakistan",
+   "name_en": "Kazakhstan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "KE",
+  "fields": {
+   "name_tr": "Kenya",
+   "name_en": "Kenya",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "XK",
+  "fields": {
+   "name_tr": "Kosova",
+   "name_en": "Kosovo",
+   "continent": "Europe",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "KW",
+  "fields": {
+   "name_tr": "Kuveyt",
+   "name_en": "Kuwait",
+   "continent": "Asia",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "KG",
+  "fields": {
+   "name_tr": "Kırgızistan",
+   "name_en": "Kyrgyzstan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "LA",
+  "fields": {
+   "name_tr": "Laos",
+   "name_en": "Laos",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "LV",
+  "fields": {
+   "name_tr": "Letonya",
+   "name_en": "Latvia",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "LB",
+  "fields": {
+   "name_tr": "Lübnan",
+   "name_en": "Lebanon",
+   "continent": "Asia",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "LS",
+  "fields": {
+   "name_tr": "Lesotho",
+   "name_en": "Lesotho",
+   "continent": "Africa",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "LR",
+  "fields": {
+   "name_tr": "Liberya",
+   "name_en": "Liberia",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "LY",
+  "fields": {
+   "name_tr": "Libya",
+   "name_en": "Libya",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "LT",
+  "fields": {
+   "name_tr": "Litvanya",
+   "name_en": "Lithuania",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "LU",
+  "fields": {
+   "name_tr": "Lüksemburg",
+   "name_en": "Luxembourg",
+   "continent": "Europe",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MG",
+  "fields": {
+   "name_tr": "Madagaskar",
+   "name_en": "Madagascar",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MW",
+  "fields": {
+   "name_tr": "Malavi",
+   "name_en": "Malawi",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MY",
+  "fields": {
+   "name_tr": "Malezya",
+   "name_en": "Malaysia",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "ML",
+  "fields": {
+   "name_tr": "Mali",
+   "name_en": "Mali",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MR",
+  "fields": {
+   "name_tr": "Moritanya",
+   "name_en": "Mauritania",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MX",
+  "fields": {
+   "name_tr": "Meksika",
+   "name_en": "Mexico",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MD",
+  "fields": {
+   "name_tr": "Moldova",
+   "name_en": "Moldova",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MN",
+  "fields": {
+   "name_tr": "Moğolistan",
+   "name_en": "Mongolia",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "ME",
+  "fields": {
+   "name_tr": "Karadağ",
+   "name_en": "Montenegro",
+   "continent": "Europe",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MA",
+  "fields": {
+   "name_tr": "Fas",
+   "name_en": "Morocco",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MZ",
+  "fields": {
+   "name_tr": "Mozambik",
+   "name_en": "Mozambique",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MM",
+  "fields": {
+   "name_tr": "Myanmar",
+   "name_en": "Myanmar",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "NA",
+  "fields": {
+   "name_tr": "Namibya",
+   "name_en": "Namibia",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "NP",
+  "fields": {
+   "name_tr": "Nepal",
+   "name_en": "Nepal",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "NL",
+  "fields": {
+   "name_tr": "Hollanda",
+   "name_en": "Netherlands",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "NC",
+  "fields": {
+   "name_tr": "Yeni Kaledonya",
+   "name_en": "New Caledonia",
+   "continent": "Oceania",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "NZ",
+  "fields": {
+   "name_tr": "Yeni Zelanda",
+   "name_en": "New Zealand",
+   "continent": "Oceania",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "NI",
+  "fields": {
+   "name_tr": "Nikaragua",
+   "name_en": "Nicaragua",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "NE",
+  "fields": {
+   "name_tr": "Nijer",
+   "name_en": "Niger",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "NG",
+  "fields": {
+   "name_tr": "Nijerya",
+   "name_en": "Nigeria",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "KP",
+  "fields": {
+   "name_tr": "Kuzey Kore",
+   "name_en": "North Korea",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "MK",
+  "fields": {
+   "name_tr": "Kuzey Makedonya",
+   "name_en": "North Macedonia",
+   "continent": "Europe",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "NO",
+  "fields": {
+   "name_tr": "Norveç",
+   "name_en": "Norway",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "OM",
+  "fields": {
+   "name_tr": "Umman",
+   "name_en": "Oman",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PK",
+  "fields": {
+   "name_tr": "Pakistan",
+   "name_en": "Pakistan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PS",
+  "fields": {
+   "name_tr": "Filistin",
+   "name_en": "Palestine",
+   "continent": "Asia",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PA",
+  "fields": {
+   "name_tr": "Panama",
+   "name_en": "Panama",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PG",
+  "fields": {
+   "name_tr": "Papua Yeni Gine",
+   "name_en": "Papua New Guinea",
+   "continent": "Oceania",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PY",
+  "fields": {
+   "name_tr": "Paraguay",
+   "name_en": "Paraguay",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CN",
+  "fields": {
+   "name_tr": "Çin",
+   "name_en": "People's Republic of China",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PE",
+  "fields": {
+   "name_tr": "Peru",
+   "name_en": "Peru",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PH",
+  "fields": {
+   "name_tr": "Filipinler",
+   "name_en": "Philippines",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PL",
+  "fields": {
+   "name_tr": "Polonya",
+   "name_en": "Poland",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PT",
+  "fields": {
+   "name_tr": "Portekiz",
+   "name_en": "Portugal",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "PR",
+  "fields": {
+   "name_tr": "Porto Riko",
+   "name_en": "Puerto Rico",
+   "continent": "North America",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "QA",
+  "fields": {
+   "name_tr": "Katar",
+   "name_en": "Qatar",
+   "continent": "Asia",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CG",
+  "fields": {
+   "name_tr": "Kongo Cumhuriyeti",
+   "name_en": "Republic of the Congo",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "RO",
+  "fields": {
+   "name_tr": "Romanya",
+   "name_en": "Romania",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "RU",
+  "fields": {
+   "name_tr": "Rusya",
+   "name_en": "Russia",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "RW",
+  "fields": {
+   "name_tr": "Ruanda",
+   "name_en": "Rwanda",
+   "continent": "Africa",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SA",
+  "fields": {
+   "name_tr": "Suudi Arabistan",
+   "name_en": "Saudi Arabia",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SN",
+  "fields": {
+   "name_tr": "Senegal",
+   "name_en": "Senegal",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "RS",
+  "fields": {
+   "name_tr": "Sırbistan",
+   "name_en": "Serbia",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SL",
+  "fields": {
+   "name_tr": "Sierra Leone",
+   "name_en": "Sierra Leone",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SK",
+  "fields": {
+   "name_tr": "Slovakya",
+   "name_en": "Slovakia",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SI",
+  "fields": {
+   "name_tr": "Slovenya",
+   "name_en": "Slovenia",
+   "continent": "Europe",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SB",
+  "fields": {
+   "name_tr": "Solomon Adaları",
+   "name_en": "Solomon Islands",
+   "continent": "Oceania",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SO",
+  "fields": {
+   "name_tr": "Somali",
+   "name_en": "Somalia",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "ZA",
+  "fields": {
+   "name_tr": "Güney Afrika",
+   "name_en": "South Africa",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "KR",
+  "fields": {
+   "name_tr": "Güney Kore",
+   "name_en": "South Korea",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SS",
+  "fields": {
+   "name_tr": "Güney Sudan",
+   "name_en": "South Sudan",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "ES",
+  "fields": {
+   "name_tr": "İspanya",
+   "name_en": "Spain",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "LK",
+  "fields": {
+   "name_tr": "Sri Lanka",
+   "name_en": "Sri Lanka",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SD",
+  "fields": {
+   "name_tr": "Sudan",
+   "name_en": "Sudan",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SR",
+  "fields": {
+   "name_tr": "Surinam",
+   "name_en": "Suriname",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SE",
+  "fields": {
+   "name_tr": "İsveç",
+   "name_en": "Sweden",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "CH",
+  "fields": {
+   "name_tr": "İsviçre",
+   "name_en": "Switzerland",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "SY",
+  "fields": {
+   "name_tr": "Suriye",
+   "name_en": "Syria",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TW",
+  "fields": {
+   "name_tr": "Tayvan",
+   "name_en": "Taiwan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TJ",
+  "fields": {
+   "name_tr": "Tacikistan",
+   "name_en": "Tajikistan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TZ",
+  "fields": {
+   "name_tr": "Tanzanya",
+   "name_en": "Tanzania",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TH",
+  "fields": {
+   "name_tr": "Tayland",
+   "name_en": "Thailand",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "BS",
+  "fields": {
+   "name_tr": "Bahamalar",
+   "name_en": "The Bahamas",
+   "continent": "North America",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GM",
+  "fields": {
+   "name_tr": "Gambiya",
+   "name_en": "The Gambia",
+   "continent": "Africa",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TG",
+  "fields": {
+   "name_tr": "Togo",
+   "name_en": "Togo",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TT",
+  "fields": {
+   "name_tr": "Trinidad ve Tobago",
+   "name_en": "Trinidad and Tobago",
+   "continent": "North America",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TN",
+  "fields": {
+   "name_tr": "Tunus",
+   "name_en": "Tunisia",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TR",
+  "fields": {
+   "name_tr": "Türkiye",
+   "name_en": "Turkey",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "TM",
+  "fields": {
+   "name_tr": "Türkmenistan",
+   "name_en": "Turkmenistan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "UG",
+  "fields": {
+   "name_tr": "Uganda",
+   "name_en": "Uganda",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "UA",
+  "fields": {
+   "name_tr": "Ukrayna",
+   "name_en": "Ukraine",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "AE",
+  "fields": {
+   "name_tr": "Birleşik Arap Emirlikleri",
+   "name_en": "United Arab Emirates",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "GB",
+  "fields": {
+   "name_tr": "Birleşik Krallık",
+   "name_en": "United Kingdom",
+   "continent": "Europe",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "US",
+  "fields": {
+   "name_tr": "Amerika Birleşik Devletleri",
+   "name_en": "United States of America",
+   "continent": "North America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "UY",
+  "fields": {
+   "name_tr": "Uruguay",
+   "name_en": "Uruguay",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "UZ",
+  "fields": {
+   "name_tr": "Özbekistan",
+   "name_en": "Uzbekistan",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "VU",
+  "fields": {
+   "name_tr": "Vanuatu",
+   "name_en": "Vanuatu",
+   "continent": "Oceania",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "VE",
+  "fields": {
+   "name_tr": "Venezuela",
+   "name_en": "Venezuela",
+   "continent": "South America",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "VN",
+  "fields": {
+   "name_tr": "Vietnam",
+   "name_en": "Vietnam",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "EH",
+  "fields": {
+   "name_tr": "Batı Sahra",
+   "name_en": "Western Sahara",
+   "continent": "Africa",
+   "is_active": false
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "YE",
+  "fields": {
+   "name_tr": "Yemen",
+   "name_en": "Yemen",
+   "continent": "Asia",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "ZM",
+  "fields": {
+   "name_tr": "Zambiya",
+   "name_en": "Zambia",
+   "continent": "Africa",
+   "is_active": true
+  }
+ },
+ {
+  "model": "game.country",
+  "pk": "ZW",
+  "fields": {
+   "name_tr": "Zimbabve",
+   "name_en": "Zimbabwe",
+   "continent": "Africa",
+   "is_active": true
+  }
+ }
+]

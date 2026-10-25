@@ -1,7 +1,11 @@
+from functools import lru_cache
+
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 from .challenges import REGISTRY
 from .models import Match
@@ -45,3 +49,13 @@ def match_page(request, match_id):
     if match.status == Match.Status.WAITING:
         return redirect("room_wait", match_id=match.id)
     return render(request, "game/match.html", {"match": match})
+
+
+@lru_cache(maxsize=1)
+def _world_svg():
+    return mark_safe((settings.BASE_DIR / "static" / "maps" / "world.svg").read_text(encoding="utf-8"))
+
+
+@login_required
+def practice(request):
+    return render(request, "game/practice.html", {"world_svg": _world_svg()})

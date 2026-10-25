@@ -112,3 +112,35 @@ h1, h2, h3 { font-family: var(--font-head); margin: 0 0 .5em; line-height: 1.2; 
 .dots i:nth-child(3) { animation-delay: .4s; }
 @keyframes blink { 0%, 80%, 100% { opacity: .2; } 40% { opacity: 1; } }
 .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* World map */
+.world-map { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+.world-map .ocean { fill: var(--map-ocean); }
+.world-map .country, .world-map .land { fill: var(--map-land); stroke: var(--map-border); stroke-width: .5; }
+.world-map .country.target { fill: var(--accent); stroke: var(--accent); stroke-width: .8; }
+.world-map .pulse-ring { fill: none; stroke: var(--accent); stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: pulse 1.4s ease-out infinite; }
+@keyframes pulse { 0% { transform: scale(.6); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+
+.practice { display: grid; gap: 1rem; padding: 1.5rem 0 3rem; justify-items: start; }
+.practice-head { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.practice-head h1 { margin: 0; font-size: 1.6rem; }
+.map-card { width: 100%; padding: .5rem; }
+.options { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; width: 100%; }
+.option {
+  padding: 1rem; font: 700 1.05rem var(--font-body); color: var(--text); cursor: pointer;
+  background: var(--surface); border: 2px solid var(--primary-tint); border-radius: var(--radius);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.option:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--primary); }
+.option:disabled { cursor: default; }
+.option.right { background: var(--success); border-color: var(--success); color: #fff; }
+.option.wrong { background: var(--danger); border-color: var(--danger); color: #fff; }
+.feedback { font-weight: 700; margin: 0; min-height: 1.5em; }
+.feedback.ok { color: var(--success); }
+.feedback.bad { color: var(--danger); }
+@media (max-width: 480px) { .options { grid-template-columns: 1fr; } }
+.nav-link { color: var(--text-muted); font-weight: 700; text-decoration: none; }
+.nav-link:hover { color: var(--primary); }
+@media (max-width: 480px) { .nav-link { display: none; } }
+
+[hidden] { display: none !important; }

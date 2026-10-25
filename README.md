@@ -24,6 +24,15 @@ DATABASE_URL= python manage.py test
 
 `DATABASE_URL=` boş verilir ki testler Supabase yerine yerel SQLite'ta çalışsın.
 
+## Harita verisi
+
+`static/maps/world.svg` ve `game/fixtures/countries.json` Natural Earth 110m verisinden üretilir (repoda hazır gelir). Yeniden üretmek için:
+
+```bash
+python scripts/build_world_svg.py   # GeoJSON'u geçici olarak indirir
+python manage.py loaddata countries
+```
+
 ## Supabase
 
 1. Supabase'de bir proje oluştur; Project Settings → Database'den bağlantı dizelerini al.
@@ -33,6 +42,7 @@ DATABASE_URL= python manage.py test
 3. Migration'ı Supabase'e uygula (Vercel build'inde çalışmaz):
    ```bash
    USE_MIGRATION_DB=1 python manage.py migrate
+   USE_MIGRATION_DB=1 python manage.py loaddata countries
    ```
 4. Supabase → Advisors panelinde RLS uyarısı kalmadığını kontrol et. Yeni tablo eklenince RLS migration'ı (`game/migrations/0001_enable_rls.py`) örnek alınarak tekrarlanır.
 

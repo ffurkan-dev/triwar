@@ -115,3 +115,27 @@ def room_cancel(request, match_id):
         match.status = Match.Status.CANCELLED
         match.save(update_fields=["status"])
     return JsonResponse({"ok": True})
+
+
+# Single-player map check (dev tool): the answer stays in the session until it is checked.
+@api_login_required
+@require_http_methods(["GET"])
+def practice_question(request):
+    challenge = REGISTRY["country_map"]
+    payload, answer_key = challenge.generate_rounds(1)[0]
+    request.session["practice_answer"] = answer_key
+    return JsonResponse({"payload": payload})
+
+
+@api_login_required
+@require_http_methods(["POST"])
+def practice_answer(request):
+    answer_key = request.session.pop("practice_answer", None)
+    if answer_key is None:
+        return error("Soru bulunamadı.", 409)
+    try:
+        value = str(json.loads(request.body or b"{}")["value"])
+    except (ValueError, KeyError, TypeError):
+        return error("Geçersiz istek.", 400)
+    correct = REGISTRY["country_map"].check_answer(answer_key, value)
+    return JsonResponse({"correct": correct, "answer": answer_key["answer"]})

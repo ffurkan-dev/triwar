@@ -8,6 +8,20 @@ from .challenges import REGISTRY
 ACTIVE_STATUSES = ("waiting", "active")
 
 
+class Country(models.Model):
+    iso2 = models.CharField(max_length=2, primary_key=True)  # same as the SVG path id
+    name_tr = models.CharField(max_length=100, unique=True)
+    name_en = models.CharField(max_length=100)
+    continent = models.CharField(max_length=40)
+    is_active = models.BooleanField(default=True)  # part of the question pool
+
+    class Meta:
+        verbose_name_plural = "countries"
+
+    def __str__(self):
+        return self.name_tr
+
+
 class Match(models.Model):
     """A room and the match played in it are one record."""
 

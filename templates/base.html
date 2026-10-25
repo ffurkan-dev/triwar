@@ -17,6 +17,7 @@
       <a class="brand" href="/">Triwar</a>
       <nav class="nav">
         {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'practice' %}">Harita testi</a>
           <span class="user">{{ user.username }}</span>
           <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="btn btn-ghost btn-sm" type="submit">Çıkış</button></form>
         {% else %}

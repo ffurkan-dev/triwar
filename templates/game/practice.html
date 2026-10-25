@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Harita testi · Triwar{% endblock %}
+{% block content %}
+<div class="practice">
+  <div class="practice-head">
+    <h1>Harita testi</h1>
+    <span id="counter" class="badge badge-primary"></span>
+  </div>
+  <div class="map-card card">{{ world_svg }}</div>
+  <div id="options" class="options"></div>
+  <p id="feedback" class="feedback" role="status"></p>
+  <button id="next-btn" class="btn" type="button" hidden>Sonraki</button>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'js/api.js' %}"></script>
+<script src="{% static 'js/map.js' %}"></script>
+<script src="{% static 'js/practice.js' %}"></script>
+{% endblock %}
