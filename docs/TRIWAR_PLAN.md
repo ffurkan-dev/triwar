@@ -352,7 +352,7 @@ Motor saf fonksiyonlara ayrılmalı ve `now` parametre olarak verilebilmeli ki z
 ### Faz Durumu
 | Faz | Konu | Durum |
 |---|---|---|
-| 0 | İskelet, Supabase bağlantısı, Vercel'e ilk deploy | 🟨 Kod hazır; Supabase projesi + Vercel deploy bekliyor |
+| 0 | İskelet, Supabase bağlantısı, Vercel'e ilk deploy | ✅ |
 | 1 | Kayıt / giriş / çıkış | ⬜ |
 | 2 | Lobi ve odalar | ⬜ |
 | 3 | Harita ve ülke verisi (tek kişilik test) | ⬜ |
