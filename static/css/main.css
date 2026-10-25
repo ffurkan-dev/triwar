@@ -84,3 +84,31 @@ h1, h2, h3 { font-family: var(--font-head); margin: 0 0 .5em; line-height: 1.2; 
 .error { color: var(--danger); font-size: .9rem; margin: .3rem 0 0; }
 .auth-alt { text-align: center; color: var(--text-muted); margin: 1rem 0 0; }
 .auth-alt a { color: var(--primary); font-weight: 700; }
+
+.lobby { display: grid; gap: 1.5rem; padding: 1.5rem 0 3rem; }
+.lobby h2 { font-size: 1.3rem; }
+.notice { background: var(--primary-tint); color: var(--primary); padding: .75rem 1rem; border-radius: 12px; font-weight: 700; }
+.notice a { color: inherit; }
+.muted { color: var(--text-muted); }
+.create-form { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1rem 1.5rem; }
+.create-form select {
+  display: block; margin-top: .3rem; padding: .6rem 1rem; font: inherit; color: var(--text);
+  background: var(--bg); border: 2px solid transparent; border-radius: 12px;
+}
+.create-form select:focus { outline: none; border-color: var(--primary); }
+.field-inline { font-weight: 700; }
+.time-choice { border: 0; padding: 0; margin: 0; display: flex; gap: 1rem; align-items: center; font-weight: 700; }
+.time-choice legend { float: left; margin-right: 1rem; padding: 0; }
+.room-list { display: grid; gap: .75rem; }
+.room-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1rem 1.25rem;
+}
+.room-badges { display: flex; gap: .4rem; margin-top: .3rem; flex-wrap: wrap; }
+.wait-card { text-align: center; }
+.wait-card .room-badges { justify-content: center; margin-bottom: 1rem; }
+.dots i { font-style: normal; animation: blink 1.2s infinite; }
+.dots i:nth-child(2) { animation-delay: .2s; }
+.dots i:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%, 80%, 100% { opacity: .2; } 40% { opacity: 1; } }
+.btn:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }

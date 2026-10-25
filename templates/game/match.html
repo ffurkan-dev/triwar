@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Maç · Triwar{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Maç başladı</h1>
+  <p><strong>{{ match.host.username }}</strong> vs <strong>{{ match.guest.username }}</strong></p>
+  <span class="badge badge-primary">{{ match.challenge_label }}</span>
+  <span class="badge {% if match.time_limit == 20 %}badge-accent{% else %}badge-cyan{% endif %}">{{ match.time_limit }} sn</span>
+</section>
+{% endblock %}

@@ -1,8 +1,39 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Lobi · Triwar{% endblock %}
 {% block content %}
-<section class="hero">
-  <h1>Lobi</h1>
-  <p>Odalar yakında burada listelenecek.</p>
-</section>
+<div class="lobby">
+  {% if open_url %}
+  <div class="notice">Açık bir odan veya maçın var. <a href="{{ open_url }}">Oraya dön</a></div>
+  {% endif %}
+  <p id="lobby-msg" class="error" role="alert" hidden></p>
+
+  <section class="card">
+    <h2>Oda kur</h2>
+    <form id="create-form" class="create-form">
+      <label class="field-inline">Mücadele
+        <select name="challenge_type">
+          {% for key, label in challenges %}<option value="{{ key }}">{{ label }}</option>{% endfor %}
+        </select>
+      </label>
+      <fieldset class="time-choice">
+        <legend>Süre (soru başına)</legend>
+        {% for value, label in time_limits %}
+        <label><input type="radio" name="time_limit" value="{{ value }}"{% if forloop.first %} checked{% endif %}> {{ label }}</label>
+        {% endfor %}
+      </fieldset>
+      <button class="btn" type="submit"{% if open_url %} disabled{% endif %}>Oda kur</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Açık odalar</h2>
+    <div id="room-list" class="room-list"></div>
+    <p id="room-empty" class="muted" hidden>Şu an açık oda yok. İlk odayı sen kur!</p>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'js/api.js' %}"></script>
+<script src="{% static 'js/lobby.js' %}"></script>
 {% endblock %}

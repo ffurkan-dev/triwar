@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Rakip bekleniyor · Triwar{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="card auth-card wait-card" id="room" data-id="{{ match.id }}">
+    <h1>Rakip bekleniyor<span class="dots" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></h1>
+    <div class="room-badges">
+      <span class="badge badge-primary">{{ match.challenge_label }}</span>
+      <span class="badge {% if match.time_limit == 20 %}badge-accent{% else %}badge-cyan{% endif %}">{{ match.time_limit }} sn</span>
+    </div>
+    <p class="muted">Biri odana katılınca maç otomatik başlar.</p>
+    <button id="cancel-btn" class="btn btn-ghost btn-block" type="button">İptal</button>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'js/api.js' %}"></script>
+<script src="{% static 'js/room_wait.js' %}"></script>
+{% endblock %}

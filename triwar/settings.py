@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 
 import dj_database_url
@@ -64,7 +65,7 @@ if _db_url:
     DATABASES = {"default": dj_database_url.parse(_db_url, conn_max_age=0)}
     DATABASES["default"]["DISABLE_SERVER_SIDE_CURSORS"] = True
 else:
-    DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}}
+    DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": os.environ.get("SQLITE_PATH", BASE_DIR / "db.sqlite3")}}
 
 AUTH_USER_MODEL = "accounts.User"
 
@@ -88,8 +89,14 @@ STORAGES = {
     "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
 }
 
+if "test" in sys.argv:
+    # The manifest storage needs collectstatic output, which tests do not have.
+    STORAGES["staticfiles"] = {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"}
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "lobby"
 LOGOUT_REDIRECT_URL = "home"
+
+ROUNDS_PER_MATCH = 10
