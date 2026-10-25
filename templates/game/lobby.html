@@ -6,6 +6,12 @@
   {% if open_url %}
   <div class="notice">Açık bir odan veya maçın var. <a href="{{ open_url }}">Oraya dön</a></div>
   {% endif %}
+  <p class="my-stats">
+    <strong>{{ user.username }}</strong>
+    <span class="stats" aria-label="{{ my_stats.wins }} galibiyet, {{ my_stats.losses }} mağlubiyet, {{ my_stats.draws }} beraberlik">
+      <span class="stat-w">{{ my_stats.wins }} G</span> · <span class="stat-l">{{ my_stats.losses }} M</span> · <span>{{ my_stats.draws }} B</span>
+    </span>
+  </p>
   <p id="lobby-msg" class="error" role="alert" hidden></p>
 
   <section class="card">
@@ -29,7 +35,8 @@
   <section>
     <h2>Açık odalar</h2>
     <div id="room-list" class="room-list"></div>
-    <p id="room-empty" class="muted" hidden>Şu an açık oda yok. İlk odayı sen kur!</p>
+    <p id="room-loading" class="muted">Odalar yükleniyor…</p>
+    <p id="room-empty" class="empty-state" hidden>Şu an açık oda yok. İlk odayı sen kur!</p>
   </section>
 </div>
 {% endblock %}

@@ -5,15 +5,17 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.safestring import mark_safe
 
 from . import engine
 from .challenges import REGISTRY
-from .models import Match
+from .models import Country, Match, user_stats
 
 
 @login_required
 def lobby(request):
+    Match.expire_stale(timezone.now())
     open_match = Match.open_for(request.user)
     open_url = None
     if open_match:
@@ -26,6 +28,7 @@ def lobby(request):
             "challenges": [(c.key, c.label) for c in REGISTRY.values()],
             "time_limits": Match.TIME_LIMIT_CHOICES,
             "open_url": open_url,
+            "my_stats": user_stats(request.user),
         },
     )
 
@@ -67,10 +70,13 @@ def match_result(request, match_id):
         outcome = "draw"
     else:
         outcome = "win" if match.winner_id == request.user.pk else "loss"
+    rounds = _round_summaries(match, request.user)
     return render(
         request,
         "game/result.html",
         {
+            "rounds": rounds,
+            "abandoned": match.end_reason == "abandoned",
             "match": match,
             "me": me,
             "opponent": opponent,
@@ -89,3 +95,29 @@ def _world_svg():
 @login_required
 def practice(request):
     return render(request, "game/practice.html", {"world_svg": _world_svg()})
+
+
+def _round_summaries(match, user):
+    """One entry per closed round: the country and what each player answered."""
+    rounds = list(match.rounds.filter(closed_at__isnull=False).prefetch_related("answers"))
+    countries = Country.objects.in_bulk([r.answer_key["iso2"] for r in rounds])
+
+    def describe(answer):
+        if answer is None:
+            return None
+        return {"value": answer.value, "correct": answer.is_correct, "seconds": answer.response_ms / 1000}
+
+    summaries = []
+    for rnd in rounds:
+        answers = {a.user_id: a for a in rnd.answers.all()}
+        opponent_id = match.guest_id if user.pk == match.host_id else match.host_id
+        summaries.append(
+            {
+                "number": rnd.index + 1,
+                "iso2": rnd.answer_key["iso2"],
+                "country": countries[rnd.answer_key["iso2"]].name_tr,
+                "me": describe(answers.get(user.pk)),
+                "opponent": describe(answers.get(opponent_id)),
+            }
+        )
+    return summaries

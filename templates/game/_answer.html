@@ -1,0 +1,9 @@
+<div class="answer {% if a %}{% if a.correct %}is-right{% else %}is-wrong{% endif %}{% else %}is-none{% endif %}">
+  <span class="answer-who">{{ who }}</span>
+  {% if a %}
+    <span class="answer-value">{{ a.value }} <span class="sr-only">{% if a.correct %}(doğru){% else %}(yanlış){% endif %}</span></span>
+    <span class="answer-time">{{ a.seconds|floatformat:1 }} sn</span>
+  {% else %}
+    <span class="answer-value">Cevap vermedi</span>
+  {% endif %}
+</div>

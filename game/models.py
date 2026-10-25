@@ -1,4 +1,5 @@
 import uuid
+from datetime import timedelta
 
 from django.conf import settings
 from django.db import models
@@ -6,6 +7,7 @@ from django.db import models
 from .challenges import REGISTRY
 
 ACTIVE_STATUSES = ("waiting", "active")
+ROOM_TTL = timedelta(minutes=10)  # a waiting room older than this is cancelled
 
 
 class Country(models.Model):
@@ -46,6 +48,7 @@ class Match(models.Model):
     winner = models.ForeignKey(
         settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="won_matches"
     )
+    end_reason = models.CharField(max_length=12, blank=True, default="")  # "abandoned" when a player left
     host_last_seen = models.DateTimeField(null=True, blank=True)
     guest_last_seen = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -77,6 +80,11 @@ class Match(models.Model):
         return user.pk in (self.host_id, self.guest_id)
 
     @classmethod
+    def expire_stale(cls, now):
+        """Cancel waiting rooms nobody joined within ROOM_TTL."""
+        cls.objects.filter(status=cls.Status.WAITING, created_at__lt=now - ROOM_TTL).update(status=cls.Status.CANCELLED)
+
+    @classmethod
     def open_for(cls, user):
         """The user's current waiting/active match, if any."""
         return (
@@ -84,6 +92,16 @@ class Match(models.Model):
             .filter(models.Q(host=user) | models.Q(guest=user))
             .first()
         )
+
+
+def user_stats(user):
+    """Win/loss/draw counts over finished matches (leaving a match counts as a loss)."""
+    played = Match.objects.filter(status=Match.Status.FINISHED).filter(models.Q(host=user) | models.Q(guest=user))
+    return played.aggregate(
+        wins=models.Count("id", filter=models.Q(winner=user)),
+        losses=models.Count("id", filter=models.Q(winner__isnull=False) & ~models.Q(winner=user)),
+        draws=models.Count("id", filter=models.Q(winner__isnull=True)),
+    )
 
 
 class Round(models.Model):

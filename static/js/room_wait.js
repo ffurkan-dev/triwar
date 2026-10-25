@@ -17,12 +17,21 @@
     } catch (e) { /* retry on next tick */ }
   }, 2000);
 
+  // Closing the tab cancels the room; the 10-minute staleness rule is the fallback.
+  window.addEventListener("pagehide", () => {
+    if (leaving) return;
+    const data = new FormData();
+    data.append("csrfmiddlewaretoken", document.querySelector('meta[name="csrf-token"]').content);
+    navigator.sendBeacon("/api/rooms/" + id + "/cancel/", data);
+  });
+
   cancelBtn.addEventListener("click", async () => {
     cancelBtn.disabled = true;
+    leaving = true;
     try {
       await api.post("/api/rooms/" + id + "/cancel/");
     } catch (e) { /* already started or cancelled: the poll redirects */ }
     stop();
-    if (!leaving) location.href = "/lobby/";
+    location.href = "/lobby/";
   });
 })();

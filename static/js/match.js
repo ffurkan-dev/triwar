@@ -26,7 +26,11 @@
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "option";
-        btn.textContent = name;
+        btn.dataset.name = name;
+        const key = document.createElement("kbd");
+        key.textContent = round.payload.options.indexOf(name) + 1;
+        key.setAttribute("aria-hidden", "true");
+        btn.append(key, name);
         btn.addEventListener("click", () => submit(name));
         return btn;
       })
@@ -50,7 +54,7 @@
   function paintOptions(round, reveal) {
     const buttons = optionsEl.querySelectorAll("button");
     buttons.forEach((b) => {
-      const name = b.textContent;
+      const name = b.dataset.name;
       b.disabled = round.phase !== "question" || !!round.my_answer;
       b.classList.toggle("selected", round.my_answer === name && !reveal);
       b.classList.toggle("right", !!reveal && name === reveal.answer);
@@ -119,6 +123,16 @@
     paintTimer(round);
   }
 
+  document.addEventListener("keydown", (ev) => {
+    if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
+    const n = Number(ev.key);
+    if (!(n >= 1 && n <= 4) || !state || !state.round || state.round.phase !== "question") return;
+    const btn = optionsEl.querySelectorAll("button")[n - 1];
+    if (btn && !btn.disabled) btn.click();
+  });
+
+  let failures = 0;
+
   async function poll() {
     try {
       const sentAt = Date.now();
@@ -132,10 +146,14 @@
         location.href = "/lobby/";
         return;
       }
+      failures = 0;
+      el("conn-notice").hidden = true;
       if (!answering) state = data;
       paint();
     } catch (e) {
       if (e.status === 401) location.href = "/login/";
+      else if (e.status === 404) location.href = "/lobby/";
+      else if (++failures >= 3) el("conn-notice").hidden = false;
     }
   }
 

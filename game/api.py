@@ -11,7 +11,7 @@ from django.views.decorators.http import require_http_methods
 
 from . import engine
 from .challenges import REGISTRY
-from .models import Match
+from .models import Match, user_stats
 
 
 def api_login_required(view):
@@ -28,19 +28,25 @@ def error(message, status):
     return JsonResponse({"error": message}, status=status)
 
 
+MAX_ROOMS_PER_MINUTE = 5
+
+
 def room_json(match):
+    stats = user_stats(match.host)
     return {
         "id": str(match.id),
         "host_username": match.host.username,
         "challenge_label": match.challenge_label,
         "time_limit": match.time_limit,
         "created_at": match.created_at.isoformat(),
+        "host_stats": {"wins": stats["wins"], "losses": stats["losses"], "draws": stats["draws"]},
     }
 
 
 @api_login_required
 @require_http_methods(["GET", "POST"])
 def rooms(request):
+    Match.expire_stale(timezone.now())
     if request.method == "GET":
         waiting = (
             Match.objects.filter(status=Match.Status.WAITING)
@@ -63,6 +69,9 @@ def rooms(request):
         existing = Match.open_for(request.user)
         if existing:
             return error("Zaten açık bir odan veya maçın var.", 409)
+        recent = Match.objects.filter(host=request.user, created_at__gte=timezone.now() - timedelta(minutes=1)).count()
+        if recent >= MAX_ROOMS_PER_MINUTE:
+            return error("Çok hızlı oda kuruyorsun, biraz bekle.", 429)
         try:
             with transaction.atomic():
                 match = Match.objects.create(host=request.user, challenge_type=challenge_type, time_limit=time_limit)
@@ -74,6 +83,7 @@ def rooms(request):
 @api_login_required
 @require_http_methods(["GET"])
 def room_detail(request, match_id):
+    Match.expire_stale(timezone.now())
     match = get_object_or_404(Match, pk=match_id)
     if not match.has_player(request.user):
         return error("Bulunamadı.", 404)
@@ -90,8 +100,10 @@ def room_join(request, match_id):
         match = get_object_or_404(Match.objects.select_for_update(), pk=match_id)
         if match.host_id == request.user.pk:
             return error("Kendi odana katılamazsın.", 403)
+        Match.expire_stale(timezone.now())
+        match.refresh_from_db()
         if match.status != Match.Status.WAITING or match.guest_id is not None:
-            return error("Oda doldu.", 409)
+            return error("Oda doldu." if match.status != Match.Status.CANCELLED else "Oda artık açık değil.", 409)
         if Match.open_for(request.user):
             return error("Zaten açık bir odan veya maçın var.", 409)
         match.guest = request.user
@@ -168,6 +180,7 @@ def match_state(match, user, now):
     }
     if match.status == Match.Status.FINISHED:
         data["result_url"] = reverse("match_result", args=[match.id])
+        data["end_reason"] = match.end_reason
     if match.status != Match.Status.ACTIVE:
         return data
 
@@ -208,7 +221,10 @@ def match_state_view(request, match_id):
         match = get_object_or_404(Match.objects.select_for_update().select_related("host", "guest"), pk=match_id)
         if not match.has_player(request.user):
             return error("Bulunamadı.", 404)
-        engine.advance(match, now)
+        if match.status == Match.Status.ACTIVE:
+            engine.touch(match, request.user, now)
+            engine.advance(match, now)
+            engine.forfeit_if_abandoned(match, request.user, now)
         return JsonResponse(match_state(match, request.user, now))
 
 
@@ -227,6 +243,8 @@ def match_answer(request, match_id):
         if not match.has_player(request.user):
             return error("Bulunamadı.", 404)
         try:
+            if match.status == Match.Status.ACTIVE:
+                engine.touch(match, request.user, now)
             engine.submit_answer(match, request.user, round_index, value, now)
         except engine.EngineError as exc:
             return error(exc.message, exc.status)

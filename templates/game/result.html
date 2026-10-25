@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Sonuç · Triwar{% endblock %}
 {% block content %}
-<div class="auth-wrap">
-  <div class="card auth-card result-card">
+<div class="result">
+  <div class="card result-card">
     {% if outcome == "win" %}
       <h1 class="result-win">Kazandın! 🎉</h1>
     {% elif outcome == "loss" %}
       <h1 class="result-loss">Kaybettin</h1>
     {% else %}
       <h1>Berabere</h1>
+    {% endif %}
+    {% if abandoned %}
+      <p class="muted">{% if outcome == "win" %}Rakip ayrıldı, maçı hükmen kazandın.{% else %}Maçtan ayrıldığın için hükmen kaybettin.{% endif %}</p>
     {% endif %}
     <p class="result-score">
       <span>{{ me.username }}</span>
@@ -21,5 +24,22 @@
     </div>
     <a class="btn btn-block" href="{% url 'lobby' %}">Lobiye dön</a>
   </div>
+
+  {% if rounds %}
+  <section>
+    <h2>Tur tur özet</h2>
+    <ol class="round-list">
+      {% for r in rounds %}
+      <li class="round-item">
+        <div class="round-title"><span class="badge badge-primary">Tur {{ r.number }}</span> <strong>{{ r.country }}</strong></div>
+        <div class="round-answers">
+          {% include "game/_answer.html" with who=me.username a=r.me %}
+          {% include "game/_answer.html" with who=opponent.username a=r.opponent %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
 </div>
 {% endblock %}

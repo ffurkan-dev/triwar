@@ -1,6 +1,7 @@
 (function () {
   const list = document.getElementById("room-list");
   const empty = document.getElementById("room-empty");
+  const loading = document.getElementById("room-loading");
   const msg = document.getElementById("lobby-msg");
   const form = document.getElementById("create-form");
 
@@ -23,6 +24,12 @@
     const info = document.createElement("div");
     const name = document.createElement("strong");
     name.textContent = room.host_username;
+    const st = room.host_stats;
+    const stats = document.createElement("small");
+    stats.className = "stats";
+    stats.textContent = " " + st.wins + " G · " + st.losses + " M · " + st.draws + " B";
+    stats.setAttribute("aria-label", st.wins + " galibiyet, " + st.losses + " mağlubiyet, " + st.draws + " beraberlik");
+    name.append(stats);
     const badges = document.createElement("div");
     badges.className = "room-badges";
     badges.append(
@@ -52,9 +59,15 @@
         lastSignature = signature;
         list.replaceChildren(...data.rooms.map(renderRoom));
       }
+      loading.hidden = true;
       empty.hidden = data.rooms.length > 0;
+      showMessage("");
     } catch (e) {
       if (e.status === 401) location.href = "/login/";
+      else {
+        loading.hidden = true;
+        showMessage("Odalar yüklenemedi, yeniden deneniyor…");
+      }
     }
   }
 

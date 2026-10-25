@@ -15,6 +15,7 @@ from .models import Answer, Match, Round
 COUNTDOWN_SECONDS = 3  # "3-2-1" before the first question
 REVEAL_SECONDS = 3  # answer reveal between rounds
 ANSWER_TOLERANCE_SECONDS = 1  # network slack for answers right at the deadline
+ABANDON_SECONDS = 30  # a player unseen for this long forfeits
 
 
 class EngineError(Exception):
@@ -31,6 +32,8 @@ def start_match(match, now):
     Round.objects.bulk_create(
         Round(match=match, index=i, payload=payload, answer_key=key) for i, (payload, key) in enumerate(generated)
     )
+    match.host_last_seen = match.guest_last_seen = now
+    match.save(update_fields=["host_last_seen", "guest_last_seen"])
     first = match.rounds.get(index=0)
     first.started_at = now + timedelta(seconds=COUNTDOWN_SECONDS)
     first.deadline = first.started_at + timedelta(seconds=match.time_limit)
@@ -69,6 +72,26 @@ def advance(match, now):
         nxt.started_at = reveal_end
         nxt.deadline = reveal_end + timedelta(seconds=match.time_limit)
         nxt.save(update_fields=["started_at", "deadline"])
+
+
+def touch(match, user, now):
+    """Record that the player is still on the page."""
+    field = "host_last_seen" if user.pk == match.host_id else "guest_last_seen"
+    setattr(match, field, now)
+    match.save(update_fields=[field])
+
+
+def forfeit_if_abandoned(match, user, now):
+    """`user` is present; if their opponent has been gone too long, `user` wins."""
+    if match.status != Match.Status.ACTIVE:
+        return
+    opponent_seen = match.guest_last_seen if user.pk == match.host_id else match.host_last_seen
+    if opponent_seen is not None and now - opponent_seen > timedelta(seconds=ABANDON_SECONDS):
+        match.status = Match.Status.FINISHED
+        match.finished_at = now
+        match.winner = user
+        match.end_reason = "abandoned"
+        match.save(update_fields=["status", "finished_at", "winner", "end_reason"])
 
 
 def scores(match):
