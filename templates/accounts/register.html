@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Kayıt ol · Triwar{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+  <form method="post" class="card auth-card" novalidate>
+    {% csrf_token %}
+    <h1>Kayıt ol</h1>
+    {% for field in form %}{% include "accounts/_field.html" %}{% endfor %}
+    <button class="btn btn-block" type="submit">Hesap oluştur</button>
+    <p class="auth-alt">Zaten hesabın var mı? <a href="{% url 'login' %}">Giriş yap</a></p>
+  </form>
+</div>
+{% endblock %}

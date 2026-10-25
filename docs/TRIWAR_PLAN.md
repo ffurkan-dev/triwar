@@ -353,7 +353,7 @@ Motor saf fonksiyonlara ayrılmalı ve `now` parametre olarak verilebilmeli ki z
 | Faz | Konu | Durum |
 |---|---|---|
 | 0 | İskelet, Supabase bağlantısı, Vercel'e ilk deploy | ✅ |
-| 1 | Kayıt / giriş / çıkış | ⬜ |
+| 1 | Kayıt / giriş / çıkış | ✅ |
 | 2 | Lobi ve odalar | ⬜ |
 | 3 | Harita ve ülke verisi (tek kişilik test) | ⬜ |
 | 4 | 1v1 maç akışı | ⬜ |

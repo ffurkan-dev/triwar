@@ -65,3 +65,22 @@ h1, h2, h3 { font-family: var(--font-head); margin: 0 0 .5em; line-height: 1.2; 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+.btn-sm { padding: .4rem 1rem; font-size: .9rem; }
+.btn-block { width: 100%; margin-top: .5rem; }
+.nav form { margin: 0; }
+
+.auth-wrap { display: flex; justify-content: center; padding: 2.5rem 0; }
+.auth-card { width: 100%; max-width: 420px; }
+.auth-card h1 { font-size: 1.8rem; }
+.field { margin-bottom: 1rem; }
+.field label { display: block; font-weight: 700; margin-bottom: .3rem; }
+.field input {
+  width: 100%; padding: .7rem 1rem; font: inherit; color: var(--text);
+  background: var(--bg); border: 2px solid transparent; border-radius: 12px;
+}
+.field input:focus { outline: none; border-color: var(--primary); background: var(--surface); }
+.field.has-error input { border-color: var(--danger); }
+.error { color: var(--danger); font-size: .9rem; margin: .3rem 0 0; }
+.auth-alt { text-align: center; color: var(--text-muted); margin: 1rem 0 0; }
+.auth-alt a { color: var(--primary); font-weight: 700; }

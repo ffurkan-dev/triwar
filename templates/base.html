@@ -15,7 +15,13 @@
     <div class="container">
       <a class="brand" href="/">Triwar</a>
       <nav class="nav">
-        {% if user.is_authenticated %}<span class="user">{{ user.username }}</span>{% endif %}
+        {% if user.is_authenticated %}
+          <span class="user">{{ user.username }}</span>
+          <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="btn btn-ghost btn-sm" type="submit">Çıkış</button></form>
+        {% else %}
+          <a class="btn btn-ghost btn-sm" href="{% url 'login' %}">Giriş yap</a>
+          <a class="btn btn-sm" href="{% url 'register' %}">Kayıt ol</a>
+        {% endif %}
       </nav>
     </div>
   </header>

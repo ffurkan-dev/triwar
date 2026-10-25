@@ -16,6 +16,14 @@ python manage.py runserver
 
 `DATABASE_URL` tanımlı değilse yerel `db.sqlite3` kullanılır (RLS migration'ı yalnızca Postgres'te çalışır).
 
+## Testler
+
+```bash
+DATABASE_URL= python manage.py test
+```
+
+`DATABASE_URL=` boş verilir ki testler Supabase yerine yerel SQLite'ta çalışsın.
+
 ## Supabase
 
 1. Supabase'de bir proje oluştur; Project Settings → Database'den bağlantı dizelerini al.

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Giriş yap · Triwar{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+  <form method="post" class="card auth-card" novalidate>
+    {% csrf_token %}
+    <h1>Giriş yap</h1>
+    {% for error in form.non_field_errors %}<p class="error">{{ error }}</p>{% endfor %}
+    {% for field in form %}{% include "accounts/_field.html" %}{% endfor %}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button class="btn btn-block" type="submit">Giriş yap</button>
+    <p class="auth-alt">Hesabın yok mu? <a href="{% url 'register' %}">Kayıt ol</a></p>
+  </form>
+</div>
+{% endblock %}
