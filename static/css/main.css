@@ -1,0 +1,67 @@
+:root {
+  --bg: #F7F7FC;
+  --surface: #FFFFFF;
+  --text: #1E1B3A;
+  --text-muted: #6B6890;
+  --primary: #7C3AED;
+  --primary-tint: #EDE4FF;
+  --accent: #FF4D8D;
+  --accent-tint: #FFE3EE;
+  --cyan: #06B6D4;
+  --cyan-tint: #DDF7FC;
+  --yellow: #FFC83D;
+  --success: #22C55E;
+  --danger: #EF4444;
+  --map-land: #E4E3F0;
+  --map-border: #FFFFFF;
+  --map-ocean: #EAF6FF;
+  --radius: 18px;
+  --shadow: 0 8px 24px rgb(124 58 237 / 0.10);
+  --font-head: "Fredoka", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+h1, h2, h3 { font-family: var(--font-head); margin: 0 0 .5em; line-height: 1.2; }
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+
+.topbar { background: var(--surface); box-shadow: 0 2px 12px rgb(30 27 58 / 0.05); }
+.topbar .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { font-family: var(--font-head); font-size: 1.6rem; font-weight: 600; color: var(--primary); text-decoration: none; }
+.nav { display: flex; align-items: center; gap: .75rem; }
+.nav .user { font-weight: 700; }
+
+.card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; }
+
+.btn {
+  display: inline-block; border: 0; cursor: pointer; text-decoration: none;
+  background: var(--primary); color: #fff; font: 700 1rem var(--font-body);
+  padding: .75rem 1.5rem; border-radius: 999px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgb(124 58 237 / 0.30); }
+.btn-ghost { background: var(--primary-tint); color: var(--primary); }
+.btn-accent { background: var(--accent); }
+
+.badge { display: inline-block; padding: .2rem .75rem; border-radius: 999px; font-size: .85rem; font-weight: 700; }
+.badge-primary { background: var(--primary-tint); color: var(--primary); }
+.badge-accent { background: var(--accent-tint); color: var(--accent); }
+.badge-cyan { background: var(--cyan-tint); color: #0E7490; }
+
+.hero { text-align: center; padding: 4rem 0; }
+.hero h1 { font-size: clamp(2.2rem, 7vw, 3.5rem); }
+.hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 34rem; margin: 0 auto 2rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
