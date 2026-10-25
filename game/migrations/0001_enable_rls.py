@@ -16,7 +16,7 @@ END $$;
 
 def enable_rls(apps, schema_editor):
     if schema_editor.connection.vendor == "postgresql":
-        schema_editor.execute(ENABLE_RLS_SQL)
+        schema_editor.execute(ENABLE_RLS_SQL, params=None)
 
 
 class Migration(migrations.Migration):
